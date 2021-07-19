@@ -19,7 +19,10 @@ public class UserController {
     @GetMapping("/joinForm")
     public String create() {
         User user = new User();
+        user.setUsername("test");
+        user.setPassword("1234");
+        user.setRole("ROLE_USER");
         userService.join(user);
-        return "redirect:/";
+        return "redirect:/index";
     }
 }
