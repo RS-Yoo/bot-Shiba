@@ -19,6 +19,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
+    private long userId;
     private String password;
     private String role;
     @CreationTimestamp

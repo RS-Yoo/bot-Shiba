@@ -59,6 +59,8 @@ public class UserController {
         accessToken = twitter.getOAuthAccessToken(requestToken, oauth_verifier);
         twitter.setOAuthAccessToken(accessToken);
 
+        userService.twitterJoin(accessToken.getUserId(), accessToken.getScreenName());
+
         System.out.println(accessToken.getUserId());    //트위터의 사용자 아이디
         System.out.println(accessToken.getScreenName());
 
