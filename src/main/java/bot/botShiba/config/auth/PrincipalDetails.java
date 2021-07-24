@@ -19,6 +19,10 @@ public class PrincipalDetails implements UserDetails {
         this.user = user;
     }
 
+    public long getUserId() {
+        return user.getUserId();
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
