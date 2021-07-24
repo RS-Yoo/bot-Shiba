@@ -25,12 +25,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/joinForm")
-    public String create() {
-        userService.join();
-        return "redirect:/index";
-    }
-
     @GetMapping("/twitterLogin")
     public void twitterLogin(HttpServletRequest request, HttpServletResponse response) throws TwitterException, IOException {
         Twitter twitter = new TwitterFactory().getInstance(); // 트위터로 접근
