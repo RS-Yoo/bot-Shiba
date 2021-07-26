@@ -2,7 +2,6 @@ package bot.botShiba.config.auth;
 
 import bot.botShiba.model.User;
 import bot.botShiba.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -24,7 +23,7 @@ public class PrincipalDetailsService implements UserDetailsService {
         if(userEntity != null) {
             return new PrincipalDetails(userEntity);
         }
-
-        return null;
+        else
+            return null;
     }
 }

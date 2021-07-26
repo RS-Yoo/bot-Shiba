@@ -37,7 +37,14 @@ public class UserService {
             user.setRole("ROLE_USER");
             userRepository.save(user);
         }
+    }
 
-        return;
+    public void join(User user) {
+        user.setRole("ROLE_USER");
+        String rawPwd = user.getPassword();
+        String encPwd = bCryptPasswordEncoder.encode(rawPwd);
+        user.setPassword(encPwd);
+
+        userRepository.save(user);
     }
 }

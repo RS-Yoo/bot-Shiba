@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Join form</title>
+</head>
+<body>
+<form action="/join" method="POST"/>
+<input type="text" name="username" readonly th:value="${username}" /> <br/>
+<input type="password" name="password" placeholder="Set password" /> <br/>
+<button>Join</button>
+</body>
+</html>
