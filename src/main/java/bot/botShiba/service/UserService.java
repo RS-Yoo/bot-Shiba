@@ -30,21 +30,20 @@ public class UserService {
             user.setUsername(screenName);
             user.setUserId(userId);
 
-            String randPwd = UUID.randomUUID().toString();
-            String encRandPwd = bCryptPasswordEncoder.encode(randPwd);
-
-            user.setPassword(encRandPwd);
+            user.setPassword("");
             user.setRole("ROLE_USER");
             userRepository.save(user);
         }
     }
 
     public void join(User user) {
-        user.setRole("ROLE_USER");
+
+        User initUser = userRepository.findByUsername(user.getUsername());
+
         String rawPwd = user.getPassword();
         String encPwd = bCryptPasswordEncoder.encode(rawPwd);
-        user.setPassword(encPwd);
+        initUser.setPassword(encPwd);
 
-        userRepository.save(user);
+        userRepository.save(initUser);
     }
 }
