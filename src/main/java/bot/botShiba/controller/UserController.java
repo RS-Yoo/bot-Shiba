@@ -7,19 +7,10 @@ import bot.botShiba.service.AccessTokenService;
 import bot.botShiba.service.TweetService;
 import bot.botShiba.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -28,12 +19,8 @@ import twitter4j.auth.RequestToken;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class UserController {
@@ -104,6 +91,12 @@ public class UserController {
 
     @GetMapping("/users/home")
     public String userHome() {
+        return "/users/home";
+    }
+
+    @PostMapping("/users/tweet")
+    public String tweet(String tweet, @AuthenticationPrincipal PrincipalDetails principal) {
+        tweetService.storeTweet(tweet, principal.getUserId());
         return "/users/home";
     }
 

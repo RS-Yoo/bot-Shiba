@@ -5,6 +5,23 @@
     <title>Tweet list</title>
 </head>
 <body>
-hello
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Entered Tweets</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="tweet : ${tweets}">
+                <td th:text="${tweet.content}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+<a href="/users/home">Home</a>
 </body>
 </html>

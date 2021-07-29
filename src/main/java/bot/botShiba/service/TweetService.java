@@ -14,6 +14,14 @@ public class TweetService {
         this.tweetRepository = tweetRepository;
     }
 
+    public void storeTweet(String content, long userId) {
+        Tweet tweet = new Tweet();
+        tweet.setContent(content);
+        tweet.setUserId(userId);
+
+        tweetRepository.save(tweet);
+    }
+
     public List<Tweet> findTweets(long userId) {
         return tweetRepository.findByUserId(userId);
     }
