@@ -35,6 +35,19 @@ public class AccessTokenService {
         accessTokenRepository.save(accessToken);
     }
 
+    public twitter4j.auth.AccessToken retrieveToken(long userId) throws Exception {
+        String key = loadKey();
+        Aes128 aes128 = new Aes128(key);
+
+        AccessToken tokenInfo = accessTokenRepository.findById(userId)
+                .orElse(null);
+
+        String decToken = aes128.decrypt(tokenInfo.getToken());
+        String decTokenSecret = aes128.decrypt(tokenInfo.getTokenSecret());
+
+        return new twitter4j.auth.AccessToken(decToken, decTokenSecret);
+    }
+
     private String loadKey() {
         Properties properties = new Properties();
         try {
