@@ -4,6 +4,7 @@ import bot.botShiba.model.Tweet;
 import bot.botShiba.model.User;
 import bot.botShiba.repository.TweetRepository;
 import bot.botShiba.repository.UserRepository;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
@@ -36,6 +37,7 @@ public class TweetService {
         return tweetRepository.findByUserId(userId);
     }
 
+    @Scheduled(cron = "0 0 0/2 * * *")
     public void postTweets() throws Exception {
 
         List<User> users = userRepository.findAll();
