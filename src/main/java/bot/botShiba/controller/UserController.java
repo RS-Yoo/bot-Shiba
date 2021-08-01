@@ -65,12 +65,19 @@ public class UserController {
         accessToken = twitter.getOAuthAccessToken(requestToken, oauth_verifier);
         twitter.setOAuthAccessToken(accessToken);
 
-        userService.twitterJoin(accessToken.getUserId(), accessToken.getScreenName());
-        accessTokenService.storeToken(accessToken.getUserId(), accessToken.getToken(), accessToken.getTokenSecret());
+        boolean justJoined = userService.twitterJoined(accessToken.getUserId(), accessToken.getScreenName());
 
-        model.addAttribute("username", accessToken.getScreenName());
+        if(justJoined) {
+            accessTokenService.storeToken(accessToken.getUserId(), accessToken.getToken(), accessToken.getTokenSecret());
 
-        return "/users/joinForm";
+            model.addAttribute("username", accessToken.getScreenName());
+
+            return "/users/joinForm";
+        }
+        else {
+            model.addAttribute("username", accessToken.getScreenName());
+            return "/users/askReset";
+        }
 
     }
 

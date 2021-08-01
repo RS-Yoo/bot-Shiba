@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
 
 @Service
 //@Transactional
@@ -22,7 +21,7 @@ public class UserService {
     }
 
 
-    public void twitterJoin(long userId, String screenName) {
+    public boolean twitterJoined(long userId, String screenName) {
 
         if(!userRepository.existsUserByUserId(userId)) {
 
@@ -33,7 +32,10 @@ public class UserService {
             user.setPassword("");
             user.setRole("ROLE_USER");
             userRepository.save(user);
+            return true;
         }
+        else
+            return false;
     }
 
     public void join(User user) {

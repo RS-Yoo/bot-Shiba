@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ask password reset</title>
+</head>
+<body>
+<p>You already have an account. Do you want to change your password?</p>
+<form action="/join" method="POST"/>
+<input type="text" name="username" readonly th:value="${username}" /> <br/>
+<input type="password" name="password" placeholder="Set password" /> <br/>
+<button>Change</button>
+<a href="/index">Back to Login</a>
+</body>
+</html>
