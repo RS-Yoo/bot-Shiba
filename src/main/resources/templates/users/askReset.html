@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
     <meta charset="UTF-8">
     <title>Ask password reset</title>
 </head>
 <body>
-<p>You already have an account. Do you want to change your password?</p>
-<form action="/join" method="POST"/>
-<input type="text" name="username" readonly th:value="${username}" /> <br/>
-<input type="password" name="password" placeholder="Set password" /> <br/>
-<button>Change</button>
-<a href="/index">Back to Login</a>
+<header class="welcome-header">
+    <p class="welcome-header__text">
+        You already have an account. Do you want to change your password?
+    </p>
+</header>
+<form action="/join" method="POST" id="login-form">
+    <input type="text" name="username" readonly th:value="${username}" th:style="'color:#FFFFFF'" /> <br/>
+    <input type="password" name="password" placeholder="Reset password" /> <br/>
+    <input type="submit" value="Reset" />
+    <a href="/index">Back to Login</a>
+</form>
 </body>
 </html>

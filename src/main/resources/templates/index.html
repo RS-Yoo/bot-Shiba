@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
     <meta charset="UTF-8">
     <title>Index page</title>
 </head>
 <body>
-<h1>This is the index page!</h1>
-<form action="/login" method="POST">
+
+<header class="welcome-header">
+    <h1 class="welcome-header__title"><i class="fas fa-paw"></i>Welcome to Bot Shiba</h1>
+    <p class="welcome-header__text">
+        If you have a linked Twitter account, log in with your username.
+    </p>
+</header>
+
+<form action="/login" method="POST" id="login-form">
     <input type="text" name="username" placeholder="Username" /> <br/>
     <input type="password" name="password" placeholder="Password" /> <br/>
-    <button>Login</button>
+    <input type="submit" value="Login" />
+    <a href="/twitterLogin" id="linkAccount">Link your twitter account</a>
 </form>
-<a href="/twitterLogin"><img src="https://tistory2.daumcdn.net/tistory/4720037/skin/images/twitter_button.png" /></a>
+
+<script
+        src="https://kit.fontawesome.com/5dcb36ad42.js"
+        crossorigin="anonymous"
+></script>
 </body>
 </html>

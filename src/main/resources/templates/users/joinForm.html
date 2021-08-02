@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
     <meta charset="UTF-8">
     <title>Join form</title>
 </head>
 <body>
-<form action="/join" method="POST"/>
-<input type="text" name="username" readonly th:value="${username}" /> <br/>
+
+<header class="welcome-header">
+    <h1 class="welcome-header__title"><i class="fas fa-paw"></i>Welcome to Bot Shiba</h1>
+    <p class="welcome-header__text">
+        Set password for your account.
+    </p>
+</header>
+
+<form action="/join" method="POST" id="login-form">
+<input type="text" name="username" readonly th:value="${username}" th:style="'color:#FFFFFF'" /> <br/>
 <input type="password" name="password" placeholder="Set password" /> <br/>
-<button>Join</button>
+<input type="submit" value="Join" />
+</form>
+
+<script
+        src="https://kit.fontawesome.com/5dcb36ad42.js"
+        crossorigin="anonymous"
+></script>
 </body>
 </html>

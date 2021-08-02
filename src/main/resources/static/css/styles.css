@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
+@import "reset.css";
+@import "variables.css";
+
+/* Components */
+
+/* Screens */
+@import "screens/login.css";
+
+body {
+    background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+    color: #FFFFFF;
+    font-family: "Open Sans", sans-serif;
+    height: 120vh;
+}
