@@ -1,0 +1,126 @@
+.tweet-container {
+    margin: 4em 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-container {
+    width: 100%;
+    margin: 5em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-table {
+    width: 100%;
+    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+thead {
+    padding: 1em 0.5em;
+    width: 90%;
+    border-radius: 5px;
+    background-color: var(--dark-blue);
+}
+
+tbody {
+    padding: 1em 0.5em;
+    width: 90%;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: var(--light-pink);
+    color: var(--dark-blue);
+}
+
+th {
+    font-weight: bold;
+}
+
+.tweet {
+    display: flex;
+    width: 90%;
+    height: 2em;
+    align-items: center;
+    padding: 0.5em 0;
+    border-bottom: 1px solid rgba(5, 34, 70, 0.2);
+}
+
+.tweet-entry-form {
+    margin: 4em 5%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tweet-entry-content {
+    border: none;
+    color: rgba(5, 34, 70, 0.7);
+    background: transparent;
+    padding: 1em;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+}
+
+.tweet-entry-content::placeholder {
+    color: #FFFFFF;
+}
+
+.tweet-entry-content:not([type="submit"]) {
+    border-bottom: 1px solid #FFFFFF;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.tweet-entry-content:focus {
+    color: #FFFFFF;
+    border-color: var(--dark-blue);
+}
+
+.tweet-entry-submit {
+    border: none;
+    color: #FFFFFF;
+    background-color: var(--dark-blue);
+    cursor: pointer;
+    padding: 1em 1.5em;
+    border-radius: 5px;
+}
+
+.interval-form {
+    margin-bottom: 2em;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border-radius: 5px;
+    margin: -2px 10px 0 0;
+    vertical-align: middle;
+    background: url(https://tistory2.daumcdn.net/tistory/4720037/skin/images/checkbox_unchecked_icon.png);
+    background-size: 19px;
+    cursor: pointer;
+}
+input[type="radio"]:checked + label span {
+    background: url(https://tistory2.daumcdn.net/tistory/4720037/skin/images/checkbox_checked_icon.png);
+    background-size: 19px;
+}
+
+.interval-submit {
+    border: none;
+    color: #FFFFFF;
+    background-color: var(--pink);
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    margin-left: 0.5em;
+}

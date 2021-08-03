@@ -11,7 +11,7 @@
         You already have an account. Do you want to change your password?
     </p>
 </header>
-<form action="/join" method="POST" id="login-form">
+<form action="/join" method="POST" id="login-form" autocomplete="off">
     <input type="text" name="username" readonly th:value="${username}" th:style="'color:#FFFFFF'" /> <br/>
     <input type="password" name="password" placeholder="Reset password" /> <br/>
     <input type="submit" value="Reset" />

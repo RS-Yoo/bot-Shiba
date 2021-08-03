@@ -45,8 +45,8 @@ public class TweetService {
         for(User user :users) {
 
             if(user.getHoursPassed() < user.getUserInterval()) {
-                int currHour = user.getHoursPassed();
-                user.setHoursPassed(currHour++);
+                int hour = user.getHoursPassed() +1;
+                user.setHoursPassed(hour);
                 userRepository.save(user);
                 continue;
             }
