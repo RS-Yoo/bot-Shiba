@@ -99,15 +99,10 @@ public class UserController {
 
     }
 
-    @GetMapping("/users/home")
-    public String userHome() {
-        return "/users/home";
-    }
-
     @PostMapping("/users/tweet")
     public String tweet(String tweet, @AuthenticationPrincipal PrincipalDetails principal) {
         tweetService.storeTweet(tweet, principal.getUserId());
-        return "/users/home";
+        return "redirect:/users/tweets";
     }
 
     @PostMapping("/users/setInterval")
