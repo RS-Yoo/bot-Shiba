@@ -30,6 +30,8 @@ public class UserService {
             user.setUserId(userId);
 
             user.setPassword("");
+            user.setUserInterval(1);
+            user.setHoursPassed(0);
             user.setRole("ROLE_USER");
             userRepository.save(user);
             return true;
@@ -47,5 +49,16 @@ public class UserService {
         initUser.setPassword(encPwd);
 
         userRepository.save(initUser);
+    }
+
+    public void setInterval(int interval, String username) {
+        User user = userRepository.findByUsername(username);
+        user.setUserInterval(interval);
+        userRepository.save(user);
+    }
+
+    public int retrieveInterval(String username) {
+        User user = userRepository.findByUsername(username);
+        return user.getUserInterval();
     }
 }

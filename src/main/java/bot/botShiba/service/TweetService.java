@@ -37,12 +37,21 @@ public class TweetService {
         return tweetRepository.findByUserId(userId);
     }
 
-    @Scheduled(cron = "0 0 0/2 * * *")
+    @Scheduled(cron = "0 0 0/1 * * *")
     public void postTweets() throws Exception {
 
         List<User> users = userRepository.findAll();
         List<Tweet> tweets = new ArrayList<>();
         for(User user :users) {
+
+            if(user.getHoursPassed() < user.getUserInterval()) {
+                int currHour = user.getHoursPassed();
+                user.setHoursPassed(currHour++);
+                userRepository.save(user);
+                continue;
+            }
+            user.setHoursPassed(0);
+            userRepository.save(user);
             List<Tweet> userTweet = tweetRepository.findByUserId(user.getUserId());
             int index = getRandomNumber(0, userTweet.size());
             tweets.add(userTweet.get(index));

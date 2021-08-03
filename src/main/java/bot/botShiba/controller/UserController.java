@@ -92,6 +92,9 @@ public class UserController {
     public String list(Model model, @AuthenticationPrincipal PrincipalDetails principal) {
         List<Tweet> tweets = tweetService.findTweets(principal.getUserId());
         model.addAttribute("tweets", tweets);
+
+        String username = principal.getUsername();
+        model.addAttribute("interval", userService.retrieveInterval(username));
         return "/users/tweetList";
 
     }
@@ -105,6 +108,13 @@ public class UserController {
     public String tweet(String tweet, @AuthenticationPrincipal PrincipalDetails principal) {
         tweetService.storeTweet(tweet, principal.getUserId());
         return "/users/home";
+    }
+
+    @PostMapping("/users/setInterval")
+    public String setInterval(Model model, int interval, @AuthenticationPrincipal PrincipalDetails principal) {
+        userService.setInterval(interval, principal.getUsername());
+
+        return "redirect:/users/tweets";
     }
 
 }

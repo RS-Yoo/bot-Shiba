@@ -22,6 +22,8 @@ public class User {
     private long userId;
     private String password;
     private String role;
+    private int userInterval;
+    private int hoursPassed;
     @CreationTimestamp
     private Timestamp createDate;
 }
