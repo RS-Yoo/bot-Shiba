@@ -112,4 +112,13 @@ public class UserController {
         return "redirect:/users/tweets";
     }
 
+    @PostMapping("/users/removeUser")
+    public String removeUser(@AuthenticationPrincipal PrincipalDetails principal) {
+        long userId = principal.getUserId();
+        userService.removeUser(userId);
+        accessTokenService.removeUser(userId);
+        tweetService.removeUser(userId);
+        return "/index";
+    }
+
 }

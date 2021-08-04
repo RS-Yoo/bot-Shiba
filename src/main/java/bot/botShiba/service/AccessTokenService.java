@@ -59,4 +59,7 @@ public class AccessTokenService {
         return properties.getProperty("key");
     }
 
+    public void removeUser(long userId) {
+        accessTokenRepository.deleteById(userId);
+    }
 }

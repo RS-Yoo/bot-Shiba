@@ -72,4 +72,8 @@ public class TweetService {
     private int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
+
+    public void removeUser(long userId) {
+        tweetRepository.deleteAllByUserId(userId);
+    }
 }

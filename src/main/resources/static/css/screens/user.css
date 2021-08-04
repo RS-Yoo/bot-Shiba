@@ -124,3 +124,22 @@ input[type="radio"]:checked + label span {
     border-radius: 5px;
     margin-left: 0.5em;
 }
+
+.remove-form {
+    margin-bottom: 2em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.remove-form input {
+    border: none;
+    color: #FFFFFF;
+    background-color: var(--pink);
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    margin-left: 0.5em;
+    opacity: 80%;
+}

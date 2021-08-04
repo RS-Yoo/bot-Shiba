@@ -61,4 +61,8 @@ public class UserService {
         User user = userRepository.findByUsername(username);
         return user.getUserInterval();
     }
+
+    public void removeUser(Long userId) {
+        userRepository.deleteByUserId(userId);
+    }
 }
