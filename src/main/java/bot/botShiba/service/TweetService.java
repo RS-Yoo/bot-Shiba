@@ -76,4 +76,8 @@ public class TweetService {
     public void removeUser(long userId) {
         tweetRepository.deleteAllByUserId(userId);
     }
+
+    public void removeTweet(int id) {
+        tweetRepository.deleteById(id);
+    }
 }

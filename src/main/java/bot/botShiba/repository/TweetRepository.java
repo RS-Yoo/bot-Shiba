@@ -10,4 +10,5 @@ import java.util.List;
 public interface TweetRepository extends JpaRepository<Tweet, Integer> {
     List<Tweet> findByUserId(long userId);
     void deleteAllByUserId(long userId);
+    void deleteByUserIdAndContent(long userId, String content);
 }

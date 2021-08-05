@@ -105,6 +105,13 @@ public class UserController {
         return "redirect:/users/tweets";
     }
 
+    @GetMapping("/users/tweetRemove")
+    public String tweetRemove(@RequestParam(name="tweet")String tweetId, @AuthenticationPrincipal PrincipalDetails principal) {
+        int intId = Integer.parseInt(tweetId);
+        tweetService.removeTweet(intId);
+        return "redirect:/users/tweets";
+    }
+
     @PostMapping("/users/setInterval")
     public String setInterval(Model model, int interval, @AuthenticationPrincipal PrincipalDetails principal) {
         userService.setInterval(interval, principal.getUsername());

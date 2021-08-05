@@ -20,7 +20,9 @@
             </thead>
             <tbody>
             <tr class="tweet" th:each="tweet : ${tweets}">
-                <td th:text="${tweet.content}"></td>
+                <td th:text="${tweet.content}">
+                </td>
+                <a th:href="@{/users/tweetRemove(tweet=${tweet.id})}">Delete</a>
             </tr>
             </tbody>
         </table>
