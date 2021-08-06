@@ -47,7 +47,8 @@ th {
     width: 90%;
     height: 2em;
     align-items: center;
-    padding: 0.5em 0;
+    justify-content: space-between;
+    padding: 0.5em 0.2em;
     border-bottom: 1px solid rgba(5, 34, 70, 0.2);
 }
 

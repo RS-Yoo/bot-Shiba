@@ -3,7 +3,7 @@
 <head>
     <link th:href="@{/css/styles.css}" rel="stylesheet" />
     <meta charset="UTF-8">
-    <title>User home</title>
+    <title>Home</title>
 </head>
 <body>
 <form action="/users/tweet" method="POST" class="tweet-entry-form" autocomplete="off">
@@ -22,7 +22,9 @@
             <tr class="tweet" th:each="tweet : ${tweets}">
                 <td th:text="${tweet.content}">
                 </td>
-                <a th:href="@{/users/tweetRemove(tweet=${tweet.id})}">Delete</a>
+                <td>
+                <a th:href="@{/users/tweetRemove(tweet=${tweet.id})}" class="tweet-delete">Delete</a>
+                </td>
             </tr>
             </tbody>
         </table>
